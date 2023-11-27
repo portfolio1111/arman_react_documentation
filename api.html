@@ -66,13 +66,30 @@ export default function Users() {
         {items.map(item => (
           <span key={item.id}>
             {/* {item.id} ) <b>{item.title}</b> - {item.email}  <br/> */}
-            {item.id} ) <b>{item.size_name}</b>  <br/>
+{item.id} ) <b>{item.size_name}</b>  <br/>
+<img src={item.image} alt={item.title} /> 
+{new Date(item.created_at).toLocaleDateString()}
+          
           </span>
         ))}
       </div>
     );
   }
 }
+
+
+web.php
+Route::get('/blogs', [BlogController::class, 'all_blog_api']);
+BlogController.php
+use App\Models\Blog;
+    public function all_blog_api(){
+        $blogs = Blog::latest()->get();
+        $blogs = $blogs->map(function ($blog) {
+            $blog['image'] = asset('/images/blogs/' . $blog->image);
+            return $blog;
+        });
+        return response()->json($blogs);
+    }
 
           
         </textarea>

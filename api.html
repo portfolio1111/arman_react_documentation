@@ -91,7 +91,19 @@ use App\Models\Blog;
         return response()->json($blogs);
     }
 
+------------------------------------------------
+LARAVEL
+------------------------------------------------
+routes/api.php
+use App\Models\Product;
+Route::get('/products', function () {
+    $products = Product::get();
+    return response()->json($products);
+});
           
+CHECK IN POSTMAN
+https://laravel.baeinnovation.com/api/products
+
         </textarea>
       </div>
     </div>

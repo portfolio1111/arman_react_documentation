@@ -13,7 +13,13 @@
   <body>
     <div class="container pt-4">
       <div class="row">
-        <textarea cols="200" rows="20" class="form-control">    
+        <textarea cols="200" rows="20" class="form-control">  
+npm create vite@latest projectname
+cd projectname
+npm install
+npm run dev   
+npm run build      
+  
 <!-- check------------------ -->
 node -v
 npm -v
@@ -25,6 +31,19 @@ create-react-app myapp
 cd myapp
 code .
 npm start  
+------------------------------------------------
+LARAVEL
+------------------------------------------------
+routes/api.php
+use App\Models\Product;
+Route::get('/products', function () {
+    $products = Product::get();
+    return response()->json($products);
+});
+          
+CHECK IN POSTMAN
+https://laravel.baeinnovation.com/api/products
+
         </textarea>
       </div>
     </div>
